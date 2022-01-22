@@ -5,7 +5,7 @@ namespace Cursos.Core.Model
     public class Cartao : EntidadeBase, IIdentityEntity
     {
 
-        public Cartao(int id, string numeroCartao, string codigoCartao, string validadeCartao, string nomeTitular, string bandeiraCartao)
+        public Cartao(int id, string numeroCartao, string codigoCartao, string validadeCartao, string nomeTitular, string bandeiraCartao, int idEstudante)
         {
             Id = id;
             NumeroCartao = numeroCartao;
@@ -13,6 +13,7 @@ namespace Cursos.Core.Model
             ValidadeCartao = validadeCartao;
             NomeTitular = nomeTitular;
             BandeiraCartao = bandeiraCartao;
+            IdEstudante = idEstudante;
         }
 
         public int Id { get; set; }
@@ -21,5 +22,6 @@ namespace Cursos.Core.Model
         public string CodigoCartao { get; set; }
         public string NomeTitular { get; set; }
         public string BandeiraCartao { get; set; }
+        public int IdEstudante { get; set; }
     }
 }

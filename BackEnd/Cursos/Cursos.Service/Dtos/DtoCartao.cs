@@ -3,7 +3,7 @@ namespace Cursos.Service.Dtos
 {
     public class DtoCartao
     {
-        public DtoCartao(int id, string numeroCartao, string codigoCartao, string validadeCartao, string nomeTitular, string bandeiraCartao)
+        public DtoCartao(int id, string numeroCartao, string codigoCartao, string validadeCartao, string nomeTitular, string bandeiraCartao, int idEstudante)
         {
             Id = id;
             NumeroCartao = numeroCartao;
@@ -11,6 +11,7 @@ namespace Cursos.Service.Dtos
             ValidadeCartao = validadeCartao;
             NomeTitular = nomeTitular;
             BandeiraCartao = bandeiraCartao;
+            IdEstudante = idEstudante;
         }
 
         public int Id { get; set; }
@@ -19,5 +20,6 @@ namespace Cursos.Service.Dtos
         public string CodigoCartao { get; set; }
         public string NomeTitular { get; set; }
         public string BandeiraCartao { get; set; }
+        public int IdEstudante { get; set; }
     }
 }

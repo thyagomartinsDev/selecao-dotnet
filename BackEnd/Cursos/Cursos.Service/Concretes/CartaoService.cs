@@ -25,7 +25,8 @@ namespace Cursos.Service.Concretes
                     model.CodigoCartao,
                     model.ValidadeCartao,
                     model.NomeTitular,
-                    model.BandeiraCartao
+                    model.BandeiraCartao,
+                    model.IdEstudante
                 );
 
             await _cartaoRepository.UpdateAsync(cartao);
@@ -43,7 +44,8 @@ namespace Cursos.Service.Concretes
                     cartao.CodigoCartao,
                     cartao.ValidadeCartao,
                     cartao.NomeTitular,
-                    cartao.BandeiraCartao
+                    cartao.BandeiraCartao,
+                    cartao.IdEstudante
                 );
 
             return dtoCartao;
@@ -63,7 +65,8 @@ namespace Cursos.Service.Concretes
                     dtoCartao.CodigoCartao,
                     dtoCartao.ValidadeCartao,
                     dtoCartao.NomeTitular,
-                    dtoCartao.BandeiraCartao
+                    dtoCartao.BandeiraCartao,
+                    dtoCartao.IdEstudante
                 );
 
                 dtoCatoes.Add(cartao);
@@ -85,7 +88,8 @@ namespace Cursos.Service.Concretes
                     model.CodigoCartao,
                     model.ValidadeCartao,
                     model.NomeTitular,
-                    model.BandeiraCartao
+                    model.BandeiraCartao,
+                    model.IdEstudante
                 );
 
             await _cartaoRepository.AddAsync(cartao);

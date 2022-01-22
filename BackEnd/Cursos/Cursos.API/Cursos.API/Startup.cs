@@ -1,4 +1,3 @@
-using Cursos.IoC.InicializaSetup;
 using Cursos.Repository;
 using Cursos.Repository.Interfaces;
 using Cursos.Repository.Repository;
