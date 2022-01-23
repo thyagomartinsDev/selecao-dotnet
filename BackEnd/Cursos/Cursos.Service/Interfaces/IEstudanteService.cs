@@ -10,6 +10,7 @@ namespace Cursos.Service.Interfaces
         Task<DtoEstudante> Alterar(DtoEstudante model);
         Task<IEnumerable<DtoEstudante>> BuscarTodos();
         Task<DtoEstudante> BuscarPorId(int idEstudante);
+        Task<DtoEstudante> BuscarPorCPF(string cpfEstudante);
         Task<bool> Excluir(int idEstudante);
     }
 }

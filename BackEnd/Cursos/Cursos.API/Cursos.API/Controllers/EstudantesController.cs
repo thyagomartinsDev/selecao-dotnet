@@ -85,6 +85,24 @@ namespace Cursos.API.Controllers
             }
         }
 
+        [Route("BuscarPorCPF")]
+        //[Authorize]
+        [HttpGet]
+        public async Task<IActionResult> BuscarPorCPF(string cpfEstudante)
+        {
+            try
+            {
+
+                var retorno = await _estudanteService.BuscarPorCPF(cpfEstudante);
+
+                return Ok(retorno);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
         [Route("Excluir")]
         //[Authorize]
         [HttpDelete]

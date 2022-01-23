@@ -3,14 +3,16 @@ using System;
 using Cursos.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Cursos.Repository.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20220123041022_AjustesNasEntidades")]
+    partial class AjustesNasEntidades
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -165,6 +167,12 @@ namespace Cursos.Repository.Migrations
                     b.Property<DateTime?>("AtualizadoEm")
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("CodigoCartao")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CodigoEstudante")
+                        .HasColumnType("INTEGER");
+
                     b.Property<DateTime?>("DeletadoEm")
                         .HasColumnType("TEXT");
 
@@ -174,13 +182,7 @@ namespace Cursos.Repository.Migrations
                     b.Property<bool>("EhDeletado")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("IdCartao")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("IdCurso")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("IdEstudante")
+                    b.Property<int>("FormaPagamento")
                         .HasColumnType("INTEGER");
 
                     b.Property<double>("ValorTotal")

@@ -2,6 +2,7 @@
 using Cursos.Repository.Interfaces;
 using Cursos.Service.Dtos;
 using Cursos.Service.Interfaces;
+using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -49,6 +50,34 @@ namespace Cursos.Service.Concretes
                 );
 
             return dtoCartao;
+        }
+
+        public async Task<IEnumerable<DtoCartao>> BuscarPorIdEstudante(int idEstudante)
+        {
+            var cartao = await _cartaoRepository.GetAllAsync();
+
+            var cartoesdoEstudante = cartao.Where(c => c.IdEstudante == idEstudante);
+
+            List<DtoCartao> dtoCatoes = new List<DtoCartao>();
+
+            foreach (var item in cartoesdoEstudante)
+            {
+                var dtoCartao = new DtoCartao(
+                                    item.Id,
+                                    item.NumeroCartao,
+                                    item.CodigoCartao,
+                                    item.ValidadeCartao,
+                                    item.NomeTitular,
+                                    item.BandeiraCartao,
+                                    item.IdEstudante
+                                );
+
+                dtoCatoes.Add(dtoCartao);
+            }
+
+            
+
+            return dtoCatoes;
         }
 
         public async Task<IEnumerable<DtoCartao>> BuscarTodos()

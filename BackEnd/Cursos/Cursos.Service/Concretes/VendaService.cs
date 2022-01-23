@@ -2,6 +2,7 @@
 using Cursos.Repository.Interfaces;
 using Cursos.Service.Dtos;
 using Cursos.Service.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -11,22 +12,35 @@ namespace Cursos.Service.Concretes
     {
 
         private readonly IVendaRepository _vendaRepository;
+        private readonly IMatriculaService _matriculaService;
 
-        public VendaService(IVendaRepository vendaRepository)
+        public VendaService(IVendaRepository vendaRepository,
+                            IMatriculaService matriculaService)
         {
             _vendaRepository = vendaRepository;
+            _matriculaService = matriculaService;
         }
         public async Task<DtoVenda> Alterar(DtoVenda model)
         {
             var venda = new Venda(
                     model.Id,
-                    model.CodigoCartao,
-                    model.CodigoEstudante,
-                    model.FormaPagamento,
+                    model.IdCurso,
+                    model.IdCartao,
+                    model.IdEstudante,
                     model.ValorTotal
                 );
 
             await _vendaRepository.UpdateAsync(venda);
+
+            var dataMatricula = DateTime.Now;
+
+            var matricula = new DtoMatricula(
+                    venda.IdCurso,
+                    venda.IdEstudante,
+                    dataMatricula
+                );
+
+            await _matriculaService.Inserir(matricula);
 
             return model;
         }
@@ -38,9 +52,9 @@ namespace Cursos.Service.Concretes
 
             var dtoVenda = new DtoVenda(
                     venda.Id,
-                    venda.CodigoCartao,
-                    venda.CodigoEstudante,
-                    venda.FormaPagamento,
+                    venda.IdCurso,
+                    venda.IdCartao,
+                    venda.IdEstudante,
                     venda.ValorTotal
                 );            
 
@@ -57,9 +71,9 @@ namespace Cursos.Service.Concretes
             {
                 var venda = new DtoVenda(
                     dtoVenda.Id,
-                    dtoVenda.CodigoCartao,
-                    dtoVenda.CodigoEstudante,
-                    dtoVenda.FormaPagamento,
+                    dtoVenda.IdCurso,
+                    dtoVenda.IdCartao,
+                    dtoVenda.IdEstudante,
                     dtoVenda.ValorTotal
                 );
 
@@ -78,9 +92,9 @@ namespace Cursos.Service.Concretes
         {
             var venda = new Venda(
                     model.Id,
-                    model.CodigoCartao,
-                    model.CodigoEstudante,
-                    model.FormaPagamento,
+                    model.IdCurso,
+                    model.IdCartao,
+                    model.IdEstudante,
                     model.ValorTotal
                 );
 

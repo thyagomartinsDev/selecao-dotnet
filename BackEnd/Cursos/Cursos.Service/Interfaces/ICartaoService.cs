@@ -11,5 +11,6 @@ namespace Cursos.Service.Interfaces
         Task<IEnumerable<DtoCartao>> BuscarTodos();
         Task<DtoCartao> BuscarPorId(int idCartao);
         Task<bool> Excluir(int idCartao);
+        Task<IEnumerable<DtoCartao>> BuscarPorIdEstudante(int idEstudante);
     }
 }

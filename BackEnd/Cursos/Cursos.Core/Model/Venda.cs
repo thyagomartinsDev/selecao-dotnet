@@ -4,19 +4,19 @@ namespace Cursos.Core.Model
 {
     public class Venda : EntidadeBase, IIdentityEntity
     {
-        public Venda(int id, int? codigoCartao, int codigoEstudante, FormaPagamentoEnum formaPagamento, double valorTotal)
+        public Venda(int id, int idCurso, int idCartao, int idEstudante, double valorTotal)
         {
             Id = id;
-            CodigoCartao = codigoCartao;
-            CodigoEstudante = codigoEstudante;
-            FormaPagamento = formaPagamento;
+            IdCurso = idCurso;
+            IdCartao = idCartao;
+            IdEstudante = idEstudante;
             ValorTotal = valorTotal;
         }
 
         public int Id { get; set; }
-        public int CodigoEstudante { get; set; }
-        public FormaPagamentoEnum FormaPagamento { get; set; }
-        public int? CodigoCartao { get; set; }
+        public int IdCurso { get; set; }
+        public int IdEstudante { get; set; }
+        public int IdCartao { get; set; }
         public double ValorTotal { get; set; }
     }
 }

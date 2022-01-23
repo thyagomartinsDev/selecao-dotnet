@@ -4,6 +4,16 @@ namespace Cursos.Service.Dtos
 {
     public class DtoMatricula
     {
+        private int idCurso;
+        private int idEstudante;
+
+        public DtoMatricula(int idCurso, int idEstudante, DateTime dataMatricula)
+        {
+            this.idCurso = idCurso;
+            this.idEstudante = idEstudante;
+            DataMatricula = dataMatricula;
+        }
+
         public DtoMatricula(int id, int codigoCurso, int codigoEstudante, DateTime dataMatricula)
         {
             Id = id;

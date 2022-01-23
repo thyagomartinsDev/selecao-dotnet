@@ -4,19 +4,19 @@ namespace Cursos.Service.Dtos
 {
     public class DtoVenda
     {
-        public DtoVenda(int id, int? codigoCartao, int codigoEstudante, FormaPagamentoEnum formaPagamento, double valorTotal)
+        public DtoVenda(int id, int idCurso, int idCartao, int codigoEstudante, double valorTotal)
         {
             Id = id;
-            CodigoCartao = codigoCartao;
-            CodigoEstudante = codigoEstudante;
-            FormaPagamento = formaPagamento;
+            IdCurso = idCurso;
+            IdCartao = idCartao;
+            IdEstudante = codigoEstudante;
             ValorTotal = valorTotal;
         }
 
         public int Id { get; set; }
-        public int CodigoEstudante { get; set; }
-        public FormaPagamentoEnum FormaPagamento { get; set; }
-        public int? CodigoCartao { get; set; }
+        public int IdCurso { get; set; }
+        public int IdEstudante { get; set; }
+        public int IdCartao { get; set; }
         public double ValorTotal { get; set; }
     }
 }

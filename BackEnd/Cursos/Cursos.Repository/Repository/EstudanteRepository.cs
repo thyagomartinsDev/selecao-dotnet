@@ -1,5 +1,6 @@
 ﻿using Cursos.Core.Model;
 using Cursos.Repository.Interfaces;
+using System.Threading.Tasks;
 
 namespace Cursos.Repository.Repository
 {

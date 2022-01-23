@@ -29,9 +29,9 @@ namespace Cursos.Service.Concretes
             return model;
         }
 
-        public async Task<DtoCurso> BuscarPorId(int idCuso)
+        public async Task<DtoCurso> BuscarPorId(int idCurso)
         {
-            var cuso = await _cursoRepository.GetByIdAsync(idCuso);
+            var cuso = await _cursoRepository.GetByIdAsync(idCurso);
 
             var dtoCuso = new DtoCurso(
                     cuso.Id,

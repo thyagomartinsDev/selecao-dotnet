@@ -7,6 +7,7 @@ namespace Cursos.Core.Model
     {
         public Curso(int id, string descricao, int duracaoCurso, int valorCurso)
         {
+            Id = id;
             Descricao = descricao;
             DuracaoCurso = duracaoCurso;
             ValorCurso = valorCurso;

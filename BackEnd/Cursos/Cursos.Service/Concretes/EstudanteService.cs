@@ -2,7 +2,8 @@
 using Cursos.Repository.Interfaces;
 using Cursos.Service.Dtos;
 using Cursos.Service.Interfaces;
-using System;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -37,6 +38,23 @@ namespace Cursos.Service
         public async Task<DtoEstudante> BuscarPorId(int idEstudante)
         {
             var estudante = await _estudanteRepository.GetByIdAsync(idEstudante);
+
+            var dtoEstudante = new DtoEstudante(
+                estudante.Id,
+                estudante.Nome,
+                estudante.Cpf,
+                estudante.Email,
+                estudante.Endereco
+                );
+
+            return dtoEstudante;
+        }
+
+        public async Task<DtoEstudante> BuscarPorCPF(string cpfEstudante)
+        {
+            var estudantes = await _estudanteRepository.GetAllAsync();
+
+            var estudante = estudantes.FirstOrDefault(e => e.Cpf == cpfEstudante);
 
             var dtoEstudante = new DtoEstudante(
                 estudante.Id,
@@ -87,7 +105,16 @@ namespace Cursos.Service
                     model.Email
                 );
 
-            await _estudanteRepository.AddAsync(estudante);
+            var retorno = await _estudanteRepository.AddAsync(estudante);
+
+            model = new DtoEstudante
+                (
+                    retorno.Id,
+                    retorno.Nome,
+                    retorno.Cpf,
+                    retorno.Email,
+                    retorno.Endereco
+                );
 
             return model;
         }
