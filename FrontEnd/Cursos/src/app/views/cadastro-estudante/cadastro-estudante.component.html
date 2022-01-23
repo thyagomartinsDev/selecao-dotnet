@@ -1,1 +1,56 @@
-<p>cadastro-estudante works!</p>
+<form id="form-lar" method="post" [formGroup]="formEstudante" (ngSubmit)="onSubmit()">
+    <fieldset>
+        <legend>Cadastro Estudante</legend>
+        <div class="separator light"></div>
+        <div class="input-group">
+            <div class="input-wrapper">
+                <label for="name">Nome</label>
+                <input formControlName="nome" type="text" id="name" name="nome" />
+                <ng-container *ngIf="formEstudante.controls.nome.touched">
+                    <span *ngIf="formEstudante.controls.nome.errors">
+                        Campo obrigatório
+                    </span>
+                </ng-container>
+            </div>
+            <div class="input-wrapper">
+                <label for="accVisita">CPF</label>
+                <input formControlName="cpf" type="text" id="endereco" name="accVisita" pattern="[0-9]{11}" />
+                <ng-container *ngIf="formEstudante.controls.cpf.touched">
+                    <span *ngIf="formEstudante.controls.cpf.errors">
+                        Campo obrigatório
+                    </span>
+                </ng-container>
+            </div>
+        </div>
+        <div class="input-group">
+            <div class="input-wrapper">
+                <label for="daily-hours">Email</label>
+                <input formControlName="email" type="email" id="endereco" name="email" />
+                <ng-container *ngIf="formEstudante.controls.email.touched">
+                    <span *ngIf="formEstudante.controls.email.errors">
+                        Campo obrigatório
+                    </span>
+                    <span *ngIf="formEstudante.controls.email.errors?.email">
+                        E-mail inválido
+                    </span>
+                </ng-container>
+            </div>
+
+            <div class="input-wrapper">
+                <label for="endereco">Endereço</label>
+                <input formControlName="endereco" type="text" id="endereco" name="endereco" />
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="button-group">
+        <button class="button green" form="form-lar" type="submit" title="Salvar Dados"
+            [disabled]="!formEstudante.valid">Salvar</button>
+        <a href="/" class="button red">
+            Cancelar
+        </a>
+        <a class="button green" (click)="Cartao()">
+            Cadastrar Cartão
+        </a>
+    </div>
+</form>

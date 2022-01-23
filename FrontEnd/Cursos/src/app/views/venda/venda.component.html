@@ -1,1 +1,49 @@
-<p>venda works!</p>
+<form id="form-lar" method="post" [formGroup]="formVenda" (ngSubmit)="onSubmit()">
+    <fieldset>
+        <legend>Adiquirir Curso</legend>
+        <div class="separator light"></div>
+        <div class="input-group">
+            <div class="input-wrapper">
+                <label for="name">Nome do Curso</label>
+                <input formControlName="nomeCurso" type="text" id="name" name="nomeCurso" readonly />
+            </div>
+            <div class="input-wrapper">
+                <label for="cpf">Informe seu CPF</label>
+                <input formControlName="cpf" type="text" id="endereco" name="accVisita" pattern="[0-9]{11}" />
+                <ng-container *ngIf="formVenda.controls.cpf.touched">
+                    <span *ngIf="formVenda.controls.cpf.errors">
+                        Campo obrigatório
+                    </span>
+                </ng-container>
+            </div>
+        </div>
+        <div class="input-group">
+            <div class="input-wrapper">
+                <label for="cartao">Selecione o Cartão</label>
+                <select formControlName="selecionaCartao">
+                    <option [value]="0"></option>
+                    <option *ngFor="let cartao of cartoes" [value]="cartao.id">
+                        {{cartao.numeroCartao}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="input-wrapper">
+                <label for="valorTotal">Valor do Curso</label>
+                <input formControlName="valorTotal" type="text" id="valor" name="valorTotal" readonly />
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="button-group">
+        <button class="button green" form="form-venda" type="submit" title="Salvar Dados"
+            [disabled]="!formVenda.valid">Adicionar Curso</button>
+
+        <a href="/" class="button red">
+            Cancelar
+        </a>
+
+        <button class="button green" form="form-venda" title="Pesquisa Cpf" [disabled]="formVenda.controls.cpf.errors"
+            (click)="consultarCpf()">Pesquisar Cpf</button>
+    </div>
+</form>

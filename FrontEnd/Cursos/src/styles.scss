@@ -1,1 +1,193 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* custom vars */
+  :root {
+    --color-background: #F0F2F5;
+    --color-text: #FCFDFF;
+  
+    --color-primary: #41414C;
+    --color-secondary: #F1972C;
+    --color-secondary-hover: #FA9C2D;
+    
+    --color-input-background: #F8F8FC;
+    --color-button-text: #FFFFFF;
+    --color-hairline-in-dark: #4F4F5B;
+    --color-hairline-in-light: #E1E3E5;
+  
+    --color-card-background: var(--color-text);
+    --color-card-title: #5A5A66;
+    --color-card-label: #BFBFCC;
+    --color-card-content: #787880;
+  
+    --color-cancel: #E1E3E5;
+    --color-delete: #EB3B35; 
+    --color-save: #36B336;
+    
+    --color-badge-progress-text: var(--color-save);
+    --color-badge-progress-background: #E8F8E8;
+    --color-badge-done-text: var(--color-delete);
+    --color-badge-done-background:#FAECEB;
+  
+    --color-header-inner-title: var(--color-card-label)
+  
+  }
+  
+  /* user-agent font-size is 16px, let's make it responsive */
+  @media(max-width: 1080px) {
+    html {
+      font-size: 93.75%; /* 15px */
+    }
+  }
+  
+  @media(max-width: 970px) {
+    html {
+      font-size: 87.5%; /* 14px */
+    }
+  }
+  
+  @media(max-width:700px) {
+    :root {
+      font-size: 75%; /* 12px */
+    }
+  }
+  
+  @media(max-width: 590px) {
+    :root {
+      font-size: 62.25%; /* 10px */
+    }
+  }
+  
+  /* tags styling */
+  body {
+    background: var(--color-background);
+  }
+  
+  body,
+  input,
+  button,
+  textarea {
+    font: 500 1rem Inter;
+    color: var(--color-text);
+    border: none;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  /* basic classes */
+  .container {
+    width: min(1440px, 90vw);
+    margin: 0 auto;
+  }
+  
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  .separator {
+    height: 1px;
+    background-color: var(--color-hairline-in-dark);
+    margin: 1rem 0;
+  }
+  
+  .separator.light {
+    background-color: #E1E3E5;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .button {
+    padding: 0.75rem 3rem;
+    border-radius: 0.313rem;
+    border: 0;
+  
+    font-family: IBM Plex Sans;
+    font-weight: 700;
+    font-size: 0.875rem;
+    line-height: 1.625rem;
+    text-transform: uppercase;
+  
+    transition: all .2s;
+  
+    cursor:pointer;
+  
+    display: inline-flex;
+    justify-content:center;
+    align-items: center;
+  }
+  
+  button.button {
+    line-height: 1.5rem;
+  }
+  
+  .button.orange {
+    background: var(--color-secondary);
+    color: var(--color-text);
+  }
+  
+  .button.orange:hover {
+    background: #FA9C2D
+  }
+  
+  .button.white {
+    background: #FCFDFF;
+    border: 1px solid #E1E3E6;
+  }
+  
+  .button.white:hover {
+    background: #F0F2F5;
+  }
+  
+  .button.green {
+    background: var(--color-save);
+    color: var(--color-text);
+  }
+  
+  .button.green:hover {
+    background: #3CC73C;
+  }
+  
+  .button.red {
+    background: var(--color-badge-done-background);
+    color: var(--color-text);
+  }
+  
+  .button.red:hover {
+    background: #FA3F38;
+  }
+  
+  .button-group {
+    display: flex;
+    align-items: center;
+  }
+  
+  .button + .button {
+    margin-left: 1rem;
+  }
+  
+  .actions .button {
+    width: 2.5rem;
+    height: 2.5rem;
+  
+    padding: 0;
+  }
+  
+  .actions .button + button {
+    margin-left: 0.5rem;
+  }

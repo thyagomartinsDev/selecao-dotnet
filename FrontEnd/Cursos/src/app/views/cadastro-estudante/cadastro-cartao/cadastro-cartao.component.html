@@ -1,1 +1,65 @@
-<p>cadastro-cartao works!</p>
+<form id="form-lar" method="post" [formGroup]="formCartao" (ngSubmit)="onSubmit()">
+    <fieldset>
+        <legend>Cadastro Cartão</legend>
+        <div class="separator light"></div>
+        <div class="input-group">
+            <div class="input-wrapper">
+                <label for="name">Numero do Cartão</label>
+                <input formControlName="numeroCartao" type="text" id="name" name="numeroCartao" />
+                <ng-container *ngIf="formCartao.controls.numeroCartao.touched">
+                    <span *ngIf="formCartao.controls.numeroCartao.errors">
+                        Campo obrigatório
+                    </span>
+                </ng-container>
+            </div>
+            <div class="input-wrapper">
+                <label for="accVisita">Vencimento</label>
+                <input formControlName="validadeCartao" type="text" id="endereco" name="validadeCartao" />
+                <ng-container *ngIf="formCartao.controls.validadeCartao.touched">
+                    <span *ngIf="formCartao.controls.validadeCartao.errors">
+                        Campo obrigatório
+                    </span>
+                </ng-container>
+            </div>
+        </div>
+        <div class="input-group">
+            <div class="input-wrapper">
+                <label for="daily-hours">CSC</label>
+                <input formControlName="codigoCartao" type="text" id="endereco" name="codigoCartao" />
+                <ng-container *ngIf="formCartao.controls.codigoCartao.touched">
+                    <span *ngIf="formCartao.controls.codigoCartao.errors">
+                        Campo obrigatório
+                    </span>
+                </ng-container>
+            </div>
+
+            <div class="input-wrapper">
+                <label for="endereco">Bandeira</label>
+                <input formControlName="bandeiraCartao" type="text" id="endereco" name="bandeiraCartao" />
+                <ng-container *ngIf="formCartao.controls.bandeiraCartao.touched">
+                    <span *ngIf="formCartao.controls.bandeiraCartao.errors">
+                        Campo obrigatório
+                    </span>
+                </ng-container>
+            </div>
+
+            <div class="input-wrapper">
+                <label for="endereco">Nome do Titular</label>
+                <input formControlName="nomeTitular" type="text" id="endereco" name="nomeTitular" />
+                <ng-container *ngIf="formCartao.controls.nomeTitular.touched">
+                    <span *ngIf="formCartao.controls.nomeTitular.errors">
+                        Campo obrigatório
+                    </span>
+                </ng-container>
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="button-group">
+        <button class="button green" form="form-lar" type="submit" title="Salvar Dados"
+            [disabled]="!formCartao.valid">Salvar</button>
+        <a href="/" class="button red">
+            Cancelar
+        </a>
+    </div>
+</form>

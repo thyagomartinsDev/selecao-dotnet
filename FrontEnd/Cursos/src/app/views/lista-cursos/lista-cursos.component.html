@@ -1,1 +1,22 @@
-<p>lista-cursos works!</p>
+<div class="cards" *ngFor="let curso of cursos">
+    <div class="card " data-id=" ">
+        <div class="nome column">
+            <span>Curso</span>
+            <p>{{curso.descricao}}</p>
+        </div>
+        <div class="cargaHora column">
+            <span>Carga Horaria</span>
+            <p>{{curso.duracaoCurso}}Hr</p>
+        </div>
+        <div class="valor column">
+            <span>Valor</span>
+            <p>R${{curso.valorCurso}}</p>
+        </div>
+        <div class="actions column flex">
+            <p class="sr-only">Adiquirir Curso</p>
+            <button class="delete button white" title="Adicionar Curso" (click)="Venda(curso.id)">
+                <span style="color: black;">+</span>
+            </button>
+        </div>
+    </div>
+</div>

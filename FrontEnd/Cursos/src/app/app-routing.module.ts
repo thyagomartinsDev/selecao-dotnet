@@ -5,18 +5,22 @@ import { ListaCursosComponent } from './views/lista-cursos/lista-cursos.componen
 import { CadastroEstudanteComponent } from './views/cadastro-estudante/cadastro-estudante.component';
 import { CadastroCartaoComponent } from './views/cadastro-estudante/cadastro-cartao/cadastro-cartao.component';
 import { VendaComponent } from './views/venda/venda.component';
+import { HeaderComponent } from './views/header/header.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'lista-cursos', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
+  { path: 'header', component: HeaderComponent },
   { path: 'lista-cursos', component: ListaCursosComponent },
   { path: 'cadastro-estudante', component: CadastroEstudanteComponent },
   { path: 'cadastro-cartao', component: CadastroCartaoComponent },
-  { path: 'venda/:id', component: VendaComponent }
+  { path: 'venda', component: VendaComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), FormsModule, ReactiveFormsModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
