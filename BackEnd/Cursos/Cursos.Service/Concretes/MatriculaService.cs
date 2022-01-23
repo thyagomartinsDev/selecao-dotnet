@@ -17,7 +17,8 @@ namespace Cursos.Service.Concretes
 
         public MatriculaService(IMatriculaRepository matriculaRepository,
                                 IEmailService emailService,
-                                IEstudanteService estudanteService)
+                                IEstudanteService estudanteService,
+                                ICursoService cusoService)
         {
             _matriculaRepository = matriculaRepository;
             _emailService = emailService;

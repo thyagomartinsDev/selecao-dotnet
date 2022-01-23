@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Cursos.Service.Interfaces
 {
-    public interface IVedaService
+    public interface IVendaService
     {
         Task<DtoVenda> Inserir(DtoVenda model);
         Task<DtoVenda> Alterar(DtoVenda model);

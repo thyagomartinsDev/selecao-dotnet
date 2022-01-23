@@ -1,4 +1,4 @@
-<form id="form-lar" method="post" [formGroup]="formVenda" (ngSubmit)="onSubmit()">
+<form id="form-lar" method="post" [formGroup]="formVenda">
     <fieldset>
         <legend>Adiquirir Curso</legend>
         <div class="separator light"></div>
@@ -9,19 +9,13 @@
             </div>
             <div class="input-wrapper">
                 <label for="cpf">Informe seu CPF</label>
-                <input formControlName="cpf" type="text" id="endereco" name="accVisita" pattern="[0-9]{11}" />
-                <ng-container *ngIf="formVenda.controls.cpf.touched">
-                    <span *ngIf="formVenda.controls.cpf.errors">
-                        Campo obrigatório
-                    </span>
-                </ng-container>
+                <input formControlName="cpf" type="text" id="cpf" name="cpf" pattern="[0-9]{11}" />
             </div>
         </div>
         <div class="input-group">
             <div class="input-wrapper">
                 <label for="cartao">Selecione o Cartão</label>
-                <select formControlName="selecionaCartao">
-                    <option [value]="0"></option>
+                <select formControlName="idCartao">
                     <option *ngFor="let cartao of cartoes" [value]="cartao.id">
                         {{cartao.numeroCartao}}
                     </option>
@@ -36,8 +30,8 @@
     </fieldset>
 
     <div class="button-group">
-        <button class="button green" form="form-venda" type="submit" title="Salvar Dados"
-            [disabled]="!formVenda.valid">Adicionar Curso</button>
+        <button class="button green" form="form-venda" (click)="finalizarVenda()" title="Salvar Dados">Adicionar
+            Curso</button>
 
         <a href="/" class="button red">
             Cancelar

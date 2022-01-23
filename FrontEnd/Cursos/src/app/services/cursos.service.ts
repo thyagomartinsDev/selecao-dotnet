@@ -29,6 +29,7 @@ export class CursosService {
   }
 
   consultarCartaoIdEstudante(idEstudante: any): Observable<any[]> {
+    debugger
     const params: HttpParams = new HttpParams().set('idEstudante', idEstudante);
     return this.httpClient.get<any[]>(`${this.url}/api/Cartao/BuscarPorIdEtudante`, { params });
   }
@@ -40,6 +41,11 @@ export class CursosService {
   consultarCurso(idCurso: any): Observable<any> {
     const params: HttpParams = new HttpParams().set('idCurso', idCurso);
     return this.httpClient.get(`${this.url}/api/Cursoes/BuscarPorId`, { params });
+  }
+
+  consultarCursosPorIdEstudante(idEstudante: any): Observable<any> {
+    const params: HttpParams = new HttpParams().set('idEstudante', idEstudante);
+    return this.httpClient.get(`${this.url}/api/Cursoes/BuscarCursosPorIdEstudante`, { params });
   }
 
 }

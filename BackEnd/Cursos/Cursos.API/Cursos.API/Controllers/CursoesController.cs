@@ -84,6 +84,24 @@ namespace Cursos.API.Controllers
             }
         }
 
+        [Route("BuscarCursosPorIdEstudante")]
+        //[Authorize]
+        [HttpGet]
+        public async Task<IActionResult> BuscarCursosPorIdEstudante(int idEstudante)
+        {
+            try
+            {
+
+                var retorno = await _cusoService.BuscaCursosPorIdEstudante(idEstudante);
+
+                return Ok(retorno);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         [Route("Excluir")]
         //[Authorize]
         [HttpDelete]

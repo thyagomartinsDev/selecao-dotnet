@@ -11,20 +11,20 @@ namespace Cursos.API.Controllers
     public class VendaController : Controller
     {
 
-        private readonly IVedaService _vedaService;
-        public VendaController(IVedaService vedaService)
+        private readonly IVendaService _vendaService;
+        public VendaController(IVendaService vendaService)
         {
-            _vedaService = vedaService;
+            _vendaService = vendaService;
         }
 
         [Route("Cadastrar")]
         [HttpPost]
-        public async Task<IActionResult> Inserir(DtoVenda matricula)
+        public async Task<IActionResult> Inserir(DtoVenda venda)
         {
 
             try
             {
-                var retorno = await _vedaService.Inserir(matricula);
+                var retorno = await _vendaService.Inserir(venda);
                 return Ok(retorno);
             }
             catch (Exception ex)
@@ -35,12 +35,12 @@ namespace Cursos.API.Controllers
 
         [Route("Atualizar")]
         [HttpPut]
-        public async Task<IActionResult> Editar(DtoVenda matricula)
+        public async Task<IActionResult> Editar(DtoVenda venda)
         {
 
             try
             {
-                var retorno = await _vedaService.Alterar(matricula);
+                var retorno = await _vendaService.Alterar(venda);
                 return Ok(retorno);
             }
             catch (Exception ex)
@@ -56,7 +56,7 @@ namespace Cursos.API.Controllers
         {
             try
             {
-                var retorno = await _vedaService.BuscarTodos();
+                var retorno = await _vendaService.BuscarTodos();
 
                 return Ok(retorno);
             }
@@ -74,7 +74,7 @@ namespace Cursos.API.Controllers
             try
             {
 
-                var retorno = await _vedaService.BuscarPorId(idVenda);
+                var retorno = await _vendaService.BuscarPorId(idVenda);
 
                 return Ok(retorno);
             }
@@ -91,7 +91,7 @@ namespace Cursos.API.Controllers
         {
             try
             {
-                await _vedaService.Excluir(idVenda);
+                await _vendaService.Excluir(idVenda);
                 return Ok();
             }
             catch (Exception ex)

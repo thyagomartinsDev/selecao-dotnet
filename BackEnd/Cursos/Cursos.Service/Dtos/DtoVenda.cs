@@ -4,12 +4,12 @@ namespace Cursos.Service.Dtos
 {
     public class DtoVenda
     {
-        public DtoVenda(int id, int idCurso, int idCartao, int codigoEstudante, double valorTotal)
+        public DtoVenda(int id, int idCurso, int idCartao, int idEstudante, double valorTotal)
         {
             Id = id;
             IdCurso = idCurso;
             IdCartao = idCartao;
-            IdEstudante = codigoEstudante;
+            IdEstudante = idEstudante;
             ValorTotal = valorTotal;
         }
 

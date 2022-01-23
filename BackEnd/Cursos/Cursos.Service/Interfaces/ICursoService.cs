@@ -11,5 +11,6 @@ namespace Cursos.Service.Interfaces
         Task<IEnumerable<DtoCurso>> BuscarTodos();
         Task<DtoCurso> BuscarPorId(int idEstudante);
         Task<bool> Excluir(int idEstudante);
+        Task<IEnumerable<DtoCurso>> BuscaCursosPorIdEstudante(int idEstudante);
     }
 }

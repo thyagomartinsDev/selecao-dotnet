@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CursosService } from 'src/app/services/cursos.service';
 import { Estudante } from '../cadastro-estudante/estudante';
+import { Venda } from './venda';
 
 @Component({
   selector: 'app-venda',
@@ -10,7 +11,7 @@ import { Estudante } from '../cadastro-estudante/estudante';
   styleUrls: ['./venda.component.scss']
 })
 export class VendaComponent implements OnInit {
-
+  venda: Venda = new Venda();
   estudante: Estudante = new Estudante();
   formVenda!: FormGroup;
   cartoes!: any[];
@@ -25,7 +26,6 @@ export class VendaComponent implements OnInit {
     const currentNavigation = this.router.getCurrentNavigation();
     if (currentNavigation && currentNavigation.extras && currentNavigation.extras.state) {
       const state = currentNavigation.extras.state;
-      debugger
       this.id = state.idCurso;
     }
   }
@@ -37,6 +37,7 @@ export class VendaComponent implements OnInit {
   }
 
   onSubmit(): void {
+
     this.finalizarVenda();
   }
 
@@ -55,11 +56,12 @@ export class VendaComponent implements OnInit {
 
   finalizarVenda(): void {
 
-    if (!this.formVenda.valid) {
-      alert("Preencha todos os dados!");
-      return;
-    }
-    this.cursoService.cadastrarEstudante(this.formVenda.value).subscribe(venda => {
+    this.venda.idCartao = this.formVenda.get('idCartao')?.value;
+    this.venda.idCurso = this.formVenda.get('idCurso')?.value;
+    this.venda.idEstudante = this.formVenda.get('idEstudante')?.value;
+    this.venda.valorTotal = this.formVenda.get('valorTotal')?.value;
+
+    this.cursoService.cadastrarVenda(this.venda).subscribe(venda => {
       console.log(venda);
       alert("Compra concluída e matricula realizada!");
     },
@@ -71,6 +73,7 @@ export class VendaComponent implements OnInit {
 
     this.cursoService.consultarCurso(this.id).subscribe(curso => {
       this.curso = curso;
+      this.formVenda.get('idCurso')?.setValue(curso.id);
       this.formVenda.get('nomeCurso')?.setValue(curso.descricao);
       this.formVenda.get('valorTotal')?.setValue(curso.valorCurso)
     },
@@ -78,12 +81,13 @@ export class VendaComponent implements OnInit {
   }
 
   consultarCpf(): void {
-    debugger
+
     let cpf = this.formVenda.get('cpf')?.value
     this.cursoService.consultarPorCpf(cpf).subscribe(estudante => {
       this.estudante = estudante;
       this.consultaCartaoPorIdEstudante(this.estudante.id);
       console.log(this.estudante);
+      this.formVenda.get('idEstudante')?.setValue(this.estudante.id);
     },
       error => alert("CPF não encontrado!"));
   }

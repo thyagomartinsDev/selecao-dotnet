@@ -14,12 +14,12 @@ export class ListaCursosComponent implements OnInit {
   constructor(private listaCursos: CursosService, private router: Router) { }
 
   ngOnInit(): void {
-    debugger
+
     this.carregarListaCursos();
   }
 
   private carregarListaCursos() {
-    debugger
+
     this.listaCursos.listarCursos().subscribe(cursos => {
       this.cursos = cursos;
     }

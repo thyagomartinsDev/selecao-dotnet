@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Cursos.Service.Concretes
 {
-    public class VendaService : IVedaService
+    public class VendaService : IVendaService
     {
 
         private readonly IVendaRepository _vendaRepository;

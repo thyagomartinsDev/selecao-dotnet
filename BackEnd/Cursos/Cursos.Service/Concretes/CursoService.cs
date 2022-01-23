@@ -4,16 +4,23 @@ using Cursos.Service.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cursos.Repository.Interfaces;
+using System.Linq;
 
 namespace Cursos.Service.Concretes
 {
     public class CursoService : ICursoService
     {
         private readonly ICursoRepository _cursoRepository;
+        private readonly IEstudanteService _estudanteService;
+        private readonly IMatriculaRepository _matriculaRepository;
 
-        public CursoService(ICursoRepository cursoRepository)
+        public CursoService(ICursoRepository cursoRepository,
+                            IEstudanteService estudanteService,
+                            IMatriculaRepository matriculaRepository)
         {
             _cursoRepository = cursoRepository;
+            _estudanteService = estudanteService;
+            _matriculaRepository = matriculaRepository;
         }
         public async Task<DtoCurso> Alterar(DtoCurso model)
         {
@@ -82,6 +89,24 @@ namespace Cursos.Service.Concretes
             await _cursoRepository.AddAsync(curso);
 
             return model;
+        }
+
+        public async Task<IEnumerable<DtoCurso>> BuscaCursosPorIdEstudante(int idEstudante)
+        {
+            var matriculas = await _matriculaRepository.GetAllAsync();
+            var cursos = await _cursoRepository.GetAllAsync();
+
+            var resultado = from curso in cursos
+                            join matricula in matriculas
+                            on curso.Id equals matricula.CodigoCurso
+                            where matricula.CodigoEstudante == idEstudante
+                            select new DtoCurso(
+                                curso.Id,
+                                curso.Descricao,
+                                curso.DuracaoCurso,
+                                curso.ValorCurso
+                                );
+            return resultado;
         }
     }
 }

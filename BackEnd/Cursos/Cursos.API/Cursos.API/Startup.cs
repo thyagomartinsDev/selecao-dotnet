@@ -41,7 +41,7 @@ namespace Cursos.API
             services.AddScoped<ICartaoRepository, CartaoRepository>();
             services.AddScoped<IMatriculaService, MatriculaService>();
             services.AddScoped<IMatriculaRepository, MatriculaRepository>();
-            services.AddScoped<IVedaService, VendaService>();
+            services.AddScoped<IVendaService, VendaService>();
             services.AddScoped<IVendaRepository, VendaRepository>();
             services.AddSendGrid(options =>
             options.ApiKey = Configuration.GetSection("Notification:SendGridAPIKey").Value

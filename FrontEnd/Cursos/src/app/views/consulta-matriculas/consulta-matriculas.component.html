@@ -1,0 +1,25 @@
+<form id="form" method="post" (ngSubmit)="onSubmit()">
+    <div class="input-wrapper">
+        <label for="cpf">Informe seu CPF</label>
+        <input type="text" id="cpf" name="CPF" [(ngModel)]="cpf" pattern="[0-9]{11}" />
+    </div>
+
+    <button class="button green" form="form" title="Pesquisa Cpf" type="submit">Pesquisar Cpf</button>
+
+    <div class="cards" *ngFor="let curso of cursos">
+        <div class="card " data-id=" ">
+            <div class="nome column">
+                <span>Curso</span>
+                <p>{{curso.descricao}}</p>
+            </div>
+            <div class="cargaHora column">
+                <span>Carga Horaria</span>
+                <p>{{curso.duracaoCurso}}Hr</p>
+            </div>
+            <div class="valor column">
+                <span>Valor</span>
+                <p>R${{curso.valorCurso}}</p>
+            </div>
+        </div>
+    </div>
+</form>

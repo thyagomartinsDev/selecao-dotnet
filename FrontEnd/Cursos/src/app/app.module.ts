@@ -11,7 +11,8 @@ import { CadastroCartaoComponent } from './views/cadastro-estudante/cadastro-car
 import { VendaComponent } from './views/venda/venda.component';
 import { HeaderComponent } from './views/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CursosService } from './services/cursos.service'
+import { CursosService } from './services/cursos.service';
+import { ConsultaMatriculasComponent } from './views/consulta-matriculas/consulta-matriculas.component'
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CursosService } from './services/cursos.service'
     ListaCursosComponent,
     CadastroCartaoComponent,
     VendaComponent,
-    HeaderComponent
+    HeaderComponent,
+    ConsultaMatriculasComponent
   ],
   imports: [
     BrowserModule,
