@@ -30,17 +30,7 @@ namespace Cursos.Service.Concretes
                     model.ValorTotal
                 );
 
-            await _vendaRepository.UpdateAsync(venda);
-
-            var dataMatricula = DateTime.Now;
-
-            var matricula = new DtoMatricula(
-                    venda.IdCurso,
-                    venda.IdEstudante,
-                    dataMatricula
-                );
-
-            await _matriculaService.Inserir(matricula);
+            await _vendaRepository.UpdateAsync(venda);            
 
             return model;
         }
@@ -99,6 +89,18 @@ namespace Cursos.Service.Concretes
                 );
 
             await _vendaRepository.AddAsync(venda);
+
+            var dataMatricula = DateTime.Now;
+            var codigoCurso = venda.IdCurso;
+            var codigoEstudante = venda.IdEstudante;
+
+            var matricula = new DtoMatricula(
+                    codigoCurso,
+                    codigoEstudante,
+                    dataMatricula
+                );
+
+            await _matriculaService.Inserir(matricula);
 
             return model; ;
         }
