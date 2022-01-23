@@ -56,23 +56,25 @@ export class VendaComponent implements OnInit {
   finalizarVenda(): void {
 
     if (!this.formVenda.valid) {
-      console.log("Formulário inválido");
+      alert("Preencha todos os dados!");
       return;
     }
     this.cursoService.cadastrarEstudante(this.formVenda.value).subscribe(venda => {
       console.log(venda);
+      alert("Compra concluída e matricula realizada!");
     },
-      error => console.log(error));
+      error => alert("Erro ao realizar a venda!"));
+
   }
 
   consultarCurso(): void {
 
     this.cursoService.consultarCurso(this.id).subscribe(curso => {
       this.curso = curso;
-      debugger
       this.formVenda.get('nomeCurso')?.setValue(curso.descricao);
       this.formVenda.get('valorTotal')?.setValue(curso.valorCurso)
-    })
+    },
+      error => alert("Curso não encontrado!"));
   }
 
   consultarCpf(): void {
@@ -82,13 +84,15 @@ export class VendaComponent implements OnInit {
       this.estudante = estudante;
       this.consultaCartaoPorIdEstudante(this.estudante.id);
       console.log(this.estudante);
-    })
+    },
+      error => alert("CPF não encontrado!"));
   }
 
   consultaCartaoPorIdEstudante(idEstudante: number): void {
     this.cursoService.consultarCartaoIdEstudante(idEstudante).subscribe(cartao => {
       this.cartoes = cartao;
       console.log(this.cartoes);
-    })
+    },
+      error => alert("Cartaões não encontrados"))
   }
 }

@@ -45,14 +45,17 @@ export class CadastroEstudanteComponent implements OnInit {
   cadastraEstudante() {
 
     if (!this.formEstudante.valid) {
-      console.log("Formulário inválido");
+      alert("Preencha todos os dados!");
       return;
     }
+
     this.cursoService.cadastrarEstudante(this.formEstudante.value).subscribe(estudante => {
       console.log(estudante);
       this.estudante = estudante;
+      alert("Estudante Cadastrado! Cadastre o cartão.");
     },
       error => console.log(error));
+    alert("Erro ao cadastrar!");
   }
 
   Cartao() {

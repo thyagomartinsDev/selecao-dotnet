@@ -48,7 +48,7 @@ export class CadastroCartaoComponent implements OnInit {
   cadastraCartao() {
 
     if (!this.formCartao.valid) {
-      console.log("Formulário inválido");
+      alert("Preencha todos os dados!");
       return;
     }
 
@@ -56,8 +56,9 @@ export class CadastroCartaoComponent implements OnInit {
 
     this.cursoService.cadastrarCartao(this.formCartao.value).subscribe(cartao => {
       console.log(cartao);
+      alert("Cartão cadastrado!");
     },
-      error => console.log(error));
+      error => alert("Erro ao cadastrar!"));
   }
 
   Home() {
