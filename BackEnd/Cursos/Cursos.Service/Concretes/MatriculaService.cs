@@ -12,10 +12,16 @@ namespace Cursos.Service.Concretes
     public class MatriculaService : IMatriculaService
     {
         private readonly IMatriculaRepository _matriculaRepository;
+        private readonly IEmailService _emailService;
+        private readonly IEstudanteService _estudanteService;
 
-        public MatriculaService(IMatriculaRepository matriculaRepository)
+        public MatriculaService(IMatriculaRepository matriculaRepository,
+                                IEmailService emailService,
+                                IEstudanteService estudanteService)
         {
             _matriculaRepository = matriculaRepository;
+            _emailService = emailService;
+            _estudanteService = estudanteService;
         }
 
         public async Task<DtoMatricula> Alterar(DtoMatricula model)
@@ -75,6 +81,12 @@ namespace Cursos.Service.Concretes
             await _matriculaRepository.AddAsync(matricula);
 
             return model;
+        }
+
+        public async Task EnviaMensagemMatricula(int idEstudante)
+        {
+            var estudante = await _estudanteService.BuscarPorId(idEstudante);
+            await _emailService.EnviaEmail(estudante.Email, "Matricula Realizada", "<h1>Parabéns!</h1><p>Você acaba de aderir a um novo curso em" + DateTime.Now + "</p>");
         }
     }
 }

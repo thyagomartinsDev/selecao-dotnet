@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using SendGrid.Extensions.DependencyInjection;
 
 namespace Cursos.API
 {
@@ -42,7 +43,10 @@ namespace Cursos.API
             services.AddScoped<IMatriculaRepository, MatriculaRepository>();
             services.AddScoped<IVedaService, VendaService>();
             services.AddScoped<IVendaRepository, VendaRepository>();
-
+            services.AddSendGrid(options =>
+            options.ApiKey = Configuration.GetSection("Notification:SendGridAPIKey").Value
+                );
+            services.AddTransient<IEmailService, EmailService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Cursos.API", Version = "v1" });
