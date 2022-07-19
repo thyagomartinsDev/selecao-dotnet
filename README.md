@@ -46,12 +46,3 @@ outra forma de armazenamento. Está etapa pode ser mockada.
 * Documentação interativa da API com Swagger   
 ou 
 * Crie as chamadas para a API em uma Collection do Postman e exporte para que possamos realizar as chamadas através dela.
-
-
-### Uma vez feito, como entrego o projeto?
-
-1. Crie um fork deste projeto;
-2. Desenvolva;
-3. Envie e-mail com o link do seu repositório e sinalizando a entrega para o analista técnico que está te apoiando durante o desenvolvimento.
-
-OBS: Você possui 4 dias para entregar a atividade. Em caso de dúvidas enviar e-mail para o analista que está te apoiando durante o desenvolvimento
