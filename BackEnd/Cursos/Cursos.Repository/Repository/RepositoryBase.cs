@@ -1,4 +1,4 @@
-﻿using Cursos.Core.Interfaces;
+﻿using Cursos.Domain.Interfaces;
 using Cursos.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;

@@ -1,5 +1,5 @@
 ﻿
-namespace Cursos.Core.Interfaces
+namespace Cursos.Domain.Interfaces
 {
     public interface IIdentityEntity
     {

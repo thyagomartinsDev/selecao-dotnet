@@ -1,6 +1,6 @@
-﻿using Cursos.Core.Interfaces;
+﻿using Cursos.Domain.Interfaces;
 
-namespace Cursos.Core.Model
+namespace Cursos.Domain.Model
 {
     public class Estudante : EntidadeBase, IIdentityEntity
     {

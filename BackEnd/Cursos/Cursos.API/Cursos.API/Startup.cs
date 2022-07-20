@@ -2,7 +2,7 @@ using Cursos.Repository;
 using Cursos.Repository.Interfaces;
 using Cursos.Repository.Repository;
 using Cursos.Service;
-using Cursos.Service.Concretes;
+using Cursos.Service.Services;
 using Cursos.Service.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

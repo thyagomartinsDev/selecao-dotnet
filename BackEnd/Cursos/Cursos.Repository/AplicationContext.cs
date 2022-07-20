@@ -1,4 +1,4 @@
-﻿using Cursos.Core.Model;
+﻿using Cursos.Domain.Model;
 using Microsoft.EntityFrameworkCore;
 using System;
 

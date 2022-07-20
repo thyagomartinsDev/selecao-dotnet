@@ -1,4 +1,4 @@
-﻿using Cursos.Core.Interfaces;
+﻿using Cursos.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

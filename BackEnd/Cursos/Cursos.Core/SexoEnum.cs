@@ -1,5 +1,5 @@
 ﻿
-namespace Cursos.Core
+namespace Cursos.Domain
 {
     public enum SexoEnum
     {

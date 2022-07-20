@@ -1,4 +1,4 @@
-﻿using Cursos.Core.Interfaces;
+﻿using Cursos.Domain.Interfaces;
 
 namespace Cursos.Repository.Interfaces
 {

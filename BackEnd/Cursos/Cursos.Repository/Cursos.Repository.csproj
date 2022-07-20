@@ -39,7 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Cursos.Core\Cursos.Core.csproj" />
+    <ProjectReference Include="..\Cursos.Core\Cursos.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-﻿using Cursos.Core.Model;
+﻿using Cursos.Domain.Model;
 using Cursos.Repository.Interfaces;
 using Cursos.Repository.Repository;
 using Cursos.Service.Dtos;
@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Cursos.Service.Concretes
+namespace Cursos.Service.Services
 {
     public class MatriculaService : IMatriculaService
     {

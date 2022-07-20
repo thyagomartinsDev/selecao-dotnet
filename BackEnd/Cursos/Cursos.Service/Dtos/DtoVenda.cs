@@ -1,4 +1,4 @@
-﻿using Cursos.Core;
+﻿using Cursos.Domain;
 
 namespace Cursos.Service.Dtos
 {

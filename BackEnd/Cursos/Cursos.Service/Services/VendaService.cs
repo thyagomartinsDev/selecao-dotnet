@@ -1,4 +1,4 @@
-﻿using Cursos.Core.Model;
+﻿using Cursos.Domain.Model;
 using Cursos.Repository.Interfaces;
 using Cursos.Service.Dtos;
 using Cursos.Service.Interfaces;
@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Cursos.Service.Concretes
+namespace Cursos.Service.Services
 {
     public class VendaService : IVendaService
     {

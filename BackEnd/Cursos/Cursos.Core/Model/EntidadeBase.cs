@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Cursos.Core.Model
+namespace Cursos.Domain.Model
 {
     public class EntidadeBase
     {

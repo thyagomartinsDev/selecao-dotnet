@@ -1,4 +1,4 @@
-﻿using Cursos.Core.Model;
+﻿using Cursos.Domain.Model;
 using Cursos.Repository.Interfaces;
 using Cursos.Service.Dtos;
 using Cursos.Service.Interfaces;
