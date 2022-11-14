@@ -1,9 +1,3 @@
-# Seleção Desenvolvedor .Net
-
-Olá, tudo tranquilo? Se você chegou até aqui, significa que tem interesse em uma das nossas vagas, certo? 
-Basicamente, o seu código será analisado por um dos nossos arquitetos e se você se sair bem, é bem provável que 
-faça parte do nosso time. Desejamos que você seja muito bem sucedido na atividade quem vem a seguir.
-
 ## Do que se trata a atividade?
 
 Precisamos que você nos mostre que sabe trabalhar com a stack .Net e Angular. 
@@ -40,9 +34,3 @@ se o estudante tiver realizado pelo menos um pagamento.
 * OBS 2: **Não será avaliado** o uso do serviço de envio de email externo como por exemplo Sendgrid. Está etapa pode ser mockada.
 * OBS 3: **Não será avaliado** o uso de banco de dados, então, você poderar escolher armazenar em memória ou usar qualquer 
 outra forma de armazenamento. Está etapa pode ser mockada.
-
-### Seria interessante
-
-* Documentação interativa da API com Swagger   
-ou 
-* Crie as chamadas para a API em uma Collection do Postman e exporte para que possamos realizar as chamadas através dela.
